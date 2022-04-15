@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/waliky/static/css/main.736d5894.css",
+    "main.js": "/waliky/static/js/main.afc61be4.js",
+    "static/media/bannerFelizcumpleanos.png": "/waliky/static/media/bannerFelizcumpleanos.e58e898ac06caa3e7695.png",
+    "static/media/sublimadoPersonalizado.png": "/waliky/static/media/sublimadoPersonalizado.c56c48fe27f4ef8d94c9.png",
+    "static/media/waliky-logo.png": "/waliky/static/media/waliky-logo.907c9d967bf8b90436b0.png",
+    "static/media/Flaticon.svg": "/waliky/static/media/Flaticon.6e666bcb232b4a142007.svg",
+    "static/media/polosCategory.jpg": "/waliky/static/media/polosCategory.36cc3121bdafb48f1783.jpg",
+    "static/media/heart.png": "/waliky/static/media/heart.16ef777554f961afd2c6.png",
+    "static/media/cojinCategory.jpg": "/waliky/static/media/cojinCategory.dcafd74b866fbf8f1eef.jpg",
+    "static/media/tazasCategory.jpg": "/waliky/static/media/tazasCategory.1c2da4dbe2939b1cafde.jpg",
+    "static/media/Flaticon.eot": "/waliky/static/media/Flaticon.4079f5db18b0a0d0938d.eot",
+    "static/media/Flaticon.ttf": "/waliky/static/media/Flaticon.2b3336c1810ee009267d.ttf",
+    "static/media/Flaticon.woff": "/waliky/static/media/Flaticon.eb2c613c7c2fbfbe1792.woff",
+    "index.html": "/waliky/index.html",
+    "static/media/bars-solid.svg": "/waliky/static/media/bars-solid.0671bc5b9388995c7446ee5e448f585d.svg",
+    "main.736d5894.css.map": "/waliky/static/css/main.736d5894.css.map",
+    "main.afc61be4.js.map": "/waliky/static/js/main.afc61be4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.736d5894.css",
+    "static/js/main.afc61be4.js"
+  ]
+}
