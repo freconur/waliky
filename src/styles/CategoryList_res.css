@@ -1,0 +1,18 @@
+/* @media( max-width: 1200px) {
+    .categoryList__button {
+        
+        grid-template-columns: repeat(6,auto);
+    }
+}
+@media( max-width: 1024px) {
+    .categoryList__button {
+        
+        grid-template-columns: repeat(4, auto);
+    }
+}
+@media( max-width: 480px) {
+    .categoryList__button {
+        
+        grid-template-columns: repeat(2, auto);
+    }
+} */

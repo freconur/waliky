@@ -1,0 +1,78 @@
+.auth__signin {
+    display: grid;
+    /* width: 100%; */
+    /* height: calc(100vh - 145px); */
+    grid-template-rows: calc(100vh - 100px);
+    background-color: #fff;
+    place-items: center;
+    /* height: 100vh; */
+    /* grid-template-rows: 3fr */
+}
+.auth__signing--container {
+    width: 300px;
+    text-align: center;
+    padding: 20px 0;
+}
+.auth__signing--container h2 {
+    font-size: 24px;
+    font-weight: 700;
+}
+.auth__signing--container a {
+    font-size: 15px;
+    font-weight: 700;
+    color: #4f31da;
+}
+/* .auth__signing--container label {
+
+} */
+.form__signin {
+    width: 300px;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    text-align: left;
+}
+.input__signin {
+    width: 100%;
+    /* height: 40px; */
+    /* line-height: 20px; */
+    margin: 0 0 15px 0;
+    padding: 12px 8px ;
+    border-radius: 5px;
+    border: 1px solid black;
+    opacity: 1;
+    opacity: 0.4;
+}
+.signin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 8px 0;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    /* height: 40px; */
+    /* line-height: 20px; */
+    padding: 12px 8px ;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+.createAccountGoogle {
+    width: 20px;
+    margin-right: 10px;
+}
+    
+.googleIcon {
+    width: 100%;
+}
+.button__signin {
+    background-color: #4f31da;
+    color: #fff;
+    margin-bottom: 15px;
+    padding: 12px 8px;
+    border-radius: 5px;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.0125em;
+    margin-top: 10px;
+}

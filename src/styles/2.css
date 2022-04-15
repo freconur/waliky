@@ -1,0 +1,85 @@
+.auth {
+    display: grid;
+    /* width: 100%; */
+    grid-template-rows: calc(100vh - 140px);
+    /* height: 100vh; */
+    background-color: #fff;
+    /* grid-template-columns: 1fr; */
+    place-items: center;
+    /* grid-template-rows: 3fr */
+}
+.auth__container {
+    width: 300px;
+    text-align: center;
+    /* height: 100vh; */
+}
+.auth__container h2 {
+    font-size: 24px;
+    font-weight: 700;
+}
+.auth__container a {
+    font-size: 15px;
+    font-weight: 700;
+    color: #4f31da;
+}
+/* .auth__container label {
+
+} */
+.LoginAccount__form {
+    width: 300px;
+    display: grid;
+    /* grid-template-rows: auto 1fr auto; */
+    text-align: left;
+}
+.input {
+    width: 100%;
+    /* height: 40px; */
+    /* line-height: 20px; */
+    /* margin: 0 0 0 0; */
+    padding: 12px 8px ;
+    border-radius: 5px;
+    border: 1px solid black;
+    opacity: 1;
+    opacity: 0.4;
+}
+.input__container {
+    margin: 0 0 15px 0;
+}
+.LoginAccount__signin {
+    display: flex;
+    /* color: blue; */
+    align-items: center;
+    place-items: center;
+    justify-content: center;
+    margin: 8px 0;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    /* height: 40px; */
+    /* line-height: 20px; */
+    padding: 12px 8px ;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+.loginAccountGoogle {
+    width: 20px;
+    margin-right: 10px;
+}
+    
+.googleIcon {
+    width: 100%;
+}
+.button {
+    background-color: #4f31da;
+    color: #fff;
+    margin-bottom: 15px;
+    padding: 12px 8px;
+    border-radius: 5px;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.0125em;
+}
+.error-message {
+    color: red;
+}

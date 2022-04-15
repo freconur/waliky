@@ -1,0 +1,17 @@
+:root {
+    --firstColor: #4f31da;
+    --white: #ffff;
+    --black: #000000;
+    --hoverButton: #fbffd3;
+    --colorText: #bbbbbb;
+    --colorText1: #6d6d6d;
+    --secondColor: #00b19f;
+    --fontSizeH2: 2.5rem;
+    --fontSizeButton: 1.2rem;
+    --fontWeightButton: 800;
+    --backgroundColor: #bbbbbb6b;
+    --backgroundColor2: #ff005073;
+    --poppins: 'Poppins'; 
+    --nunito: 'Nunito';
+    --rubik: 'Rubik';
+}

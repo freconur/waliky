@@ -1,0 +1,22 @@
+.Nosotros {
+    display: grid;
+    grid-template-rows: calc(100vh - 200px);
+    max-width: 1000px;
+    margin: auto;
+    place-items: center;
+    padding: 30px 30px;
+}
+.Nosotros__container {
+    /* height: 900px; */
+}
+.Nosotros__title {
+    font-size: var(--fontSizeH2);
+    font-family: var(--rubik);
+    font-weight: 800;
+    color: var(--firstColor);
+}
+.Nosotros__info {
+    font-family: var(--poppins);
+    color: var(--colorText1);
+    /* width: 100%; */
+}

@@ -1,0 +1,36 @@
+.Navbar__list {
+	display: flex;
+	margin: 0 0 0 50px;
+	font-size: 17px;
+	min-width: 400px;
+	padding: 0px;
+	height: inherit;
+	letter-spacing: 0.03rem;
+	justify-content: right;
+	/* grid-area: list; */
+}
+.Navbar__list--section {
+	color: white;
+	text-decoration: none;
+	list-style: none;
+	margin: 0px 0px 0px 0px;
+	/* font-size: 20px; */
+	padding: 10px 15px;
+	font-weight: 500;
+	font-family: 'Poppins';
+}
+.Navbar__list--section:hover{
+	color:#4f31da;
+}
+.Navbar__list--section::after{
+	content: '';
+	display: block;
+	width: 0;
+	height: 2px;
+	background: var(--white);
+	transition: width .3s;
+}
+.Navbar__list--section:hover::after{
+	width: 100%;
+	transition: width .3s;
+}

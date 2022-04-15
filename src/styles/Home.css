@@ -1,0 +1,8 @@
+.Home {
+    background-image: url('../assets/images/formas.png');
+    background-repeat: repeat;
+}
+.Home__container {
+    display: grid;
+    grid-template-rows: 1fr;
+}

@@ -1,0 +1,50 @@
+.MenuUser {
+    /* width: 140px;
+    background-color: #ffff;
+    border-radius: 5px;
+    list-style: none;
+    margin: inherit;
+    position: sticky;
+    top: 55px;
+    right: 0px;
+    z-index: 1; */
+
+    width: 140px;
+    border-radius: 6px;
+    padding: 0px;
+    position: sticky;
+    top: -555px;
+    /* right: 50px; */
+    background-color: #00b19f;
+    box-shadow: 8px 8px 15px rgb(0 0 0 / 30%);
+    transition: .1s;
+    margin: 0 0 0 0;
+    list-style: none;
+    text-align: center;
+    z-index: 30;
+    overflow: hidden;
+}
+.MenuUser__li {
+    padding: 15px;
+}
+.MenuUser__li--link {
+    color: black;
+    color: #ffff;
+}
+.MenuUser__li--link:hover {
+    color: black;
+}
+.MenuUser__li:hover {
+    background-color:#fbffd3;
+    color: black
+}
+.menuAdmin {
+    top: 60px;
+}
+.MenuUser li {
+    margin: inherit;
+    cursor: pointer;
+}
+.MenuUser a {
+    text-decoration: none;
+}
