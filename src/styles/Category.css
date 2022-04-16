@@ -37,13 +37,15 @@
     width: 100%;
 }
 .category {
-    min-height: calc(100 - 100px);
+    /* min-height: calc(100 - 100px); */
+    margin: 40px 0;
     /* display: flex; */
     text-align: center;
+    /* height: 800px; */
 }.category__title {
     margin: initial;
-    padding-top: 50px;
-    font-family: var(--nunito);
+    padding: 40px 0;
+    font-family: var(--rubik);
     font-weight: 900;
     color: var(--firstColor);
     /* font-size: var(--fontSizeH2); */

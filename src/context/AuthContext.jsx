@@ -45,9 +45,15 @@ export function AuthProvider({ children }) {
               )
         };
     const logout = () => signOut(auth);
+
     const loginWithGoogle = () => {
-        const googleProvider = new GoogleAuthProvider()
-        return signInWithPopup(auth, googleProvider)
+        try {
+            const googleProvider = new GoogleAuthProvider()
+            return signInWithPopup(auth, googleProvider)
+        }catch (error) {
+            
+        }
+
     }
     // const logout = () => auth.signOut()
     //sirve para idnentificar al usuario que sea logeado o registrado en su defecto

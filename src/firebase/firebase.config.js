@@ -2,8 +2,10 @@ import { initializeApp } from "firebase/app";
 // import { getFirestore } from "firebase/firestore";
 // import { getAuth } from "firebase/auth"
 // import {getAuth} from "firebase/"
+// var waliky = "data-ef982.firebaseapp.com"
 const firebaseConfig = {
     apiKey: "AIzaSyDTptq2aAkQDxK7lsrLu70EaM80cdgtSDg",
+    // authDomain: waliky,
     authDomain: "data-ef982.firebaseapp.com",
     databaseURL: "https://data-ef982-default-rtdb.firebaseio.com",
     projectId: "data-ef982",
