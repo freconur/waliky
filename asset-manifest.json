@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/waliky/static/css/main.a1a5dc61.css",
-    "main.js": "/waliky/static/js/main.05848160.js",
+    "main.css": "/waliky/static/css/main.0535aa7f.css",
+    "main.js": "/waliky/static/js/main.6289b10a.js",
     "static/media/bannerFelizcumpleanos.png": "/waliky/static/media/bannerFelizcumpleanos.e58e898ac06caa3e7695.png",
     "static/media/sublimadoPersonalizado.png": "/waliky/static/media/sublimadoPersonalizado.c56c48fe27f4ef8d94c9.png",
     "static/media/waliky-logo.png": "/waliky/static/media/waliky-logo.907c9d967bf8b90436b0.png",
@@ -15,11 +15,11 @@
     "static/media/Flaticon.woff": "/waliky/static/media/Flaticon.eb2c613c7c2fbfbe1792.woff",
     "index.html": "/waliky/index.html",
     "static/media/bars-solid.svg": "/waliky/static/media/bars-solid.0671bc5b9388995c7446ee5e448f585d.svg",
-    "main.a1a5dc61.css.map": "/waliky/static/css/main.a1a5dc61.css.map",
-    "main.05848160.js.map": "/waliky/static/js/main.05848160.js.map"
+    "main.0535aa7f.css.map": "/waliky/static/css/main.0535aa7f.css.map",
+    "main.6289b10a.js.map": "/waliky/static/js/main.6289b10a.js.map"
   },
   "entrypoints": [
-    "static/css/main.a1a5dc61.css",
-    "static/js/main.05848160.js"
+    "static/css/main.0535aa7f.css",
+    "static/js/main.6289b10a.js"
   ]
 }
