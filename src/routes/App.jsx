@@ -21,6 +21,7 @@ import PruebaFucion from '../pages/PruebaFucion';
 import FavProducts from '../pages/FavProducts';
 import ProtectedRouteUser from '../components/ProtectedRouteUser';
 import CategoryList from '../components/CategoryList';
+import Personalizados from '../pages/Personalizados'
 const App = () => {
   return (
     <AuthProvider>
@@ -42,9 +43,8 @@ const App = () => {
                 <FavProducts/>
               </ProtectedRouteUser>
             } />
-            {/* <Route exact path="/modal" element={<ModalProduct/>} /> */}
-            {/* <Route exact path="/favoritos" element={<FavProducts/>} /> */}
             <Route exact path="/polos" element={<Polos/>} />
+            <Route exact path="/personalizados" element={<Personalizados/>} />
             <Route exact path="/categoria" element={<CategoryList/>} />
             <Route exact path="/remedio" element={<PruebaFucion/>} />
             <Route exact path="/pruebabutton" element={<PruebaButton/>} />

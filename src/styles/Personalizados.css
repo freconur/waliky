@@ -1,0 +1,20 @@
+@import '../Variables.css';
+
+.personalizados {
+    max-width: 1000px;
+    margin: auto;
+}
+.personalizados__container {
+    font-size: var(--fontSizeH2);
+    font-family: var(--nunito);
+    margin: 40px 0;
+}
+.personalizados__title {
+    color: var(--firstColor);
+    font-size: 1em;
+    font-weight: 900;
+}
+.personalizados__text {
+    color: var(--colorText1);
+    font-size: .5em;
+}

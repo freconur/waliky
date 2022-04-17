@@ -15,10 +15,13 @@ const SublimadoPerosonalizado = () => {
           Quieres algo especial para esa persona especial.<br/>
           Ahora puedes crear el regalo perfecto.
           </p>
-          <a href="https://wa.me/+51982752688?text=Me%20interesa" className="sublimadosPersonalizados__callToAction" target="blank">
+          <Link to="/personalizados" className="sublimadosPersonalizados__callToAction">
             ¡QUIERO UNO!
-          </a>
-          <Link className="sublimadosPersonalizados__learnMore" to="">
+          </Link>
+          {/* <a href="https://wa.me/+51982752688?text=Me%20interesa" className="sublimadosPersonalizados__callToAction" target="blank">
+            ¡QUIERO UNO!
+          </a> */}
+          <Link className="sublimadosPersonalizados__learnMore" to="/personalizados">
             Leer más
           </Link>
         </div>
