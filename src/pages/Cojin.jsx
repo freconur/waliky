@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import app from "../firebase/firebase.config"
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { getFirestore, collection, getDocs,query, orderBy, limit } from "firebase/firestore";
 import ProductCard from "../components/ProductCard";
 import "../styles/productContainer.css";
 import '../styles/productContainer_res.css'
@@ -15,7 +15,7 @@ const Cojin = () => {
   const [newCategory, setNewCategory] = useState([])
 
   const getProduct = async () => {
-    const item = await getDocs(collection(db, "cojines"));
+    const item = await getDocs(collection(db, "cojines"),limit(10));
     const docs = [];
     const category = []
     item.forEach(doc =>  {
