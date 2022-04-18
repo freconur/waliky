@@ -1,6 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import "../styles/Personalizados.css"
-
+import personalizadoImage1 from '../assets/images/adriana.jpg'
+import personalizadoImage3 from '../assets/images/erika.jpg'
+import personalizadoImage2 from '../assets/images/marlene.jpg'
 const Personalizados = () => {
   return (
     <div className="personalizados">
@@ -9,6 +12,19 @@ const Personalizados = () => {
             <p className="personalizados__text">
                 Hola, te queremos presentar nuestra seccion de produtos personalizados en sublimados. La personalizacion de sublimados consta en crear un producto sublimado con tus preferencias, ya sea que quieres tener una tazas con la foto de perrito o gatito o tener siempre a la vista a tu familia en el cojin de tu cama, lo que se te ocurra estamos seguros que podemos plasmarlo en cualquiera de nuestros productos sublimados que pueden ser bien, tazas, cojines, polos, llaveros(en cojines), padmouse y medias.
             </p>
+            <p className="personalizados__text">Quieres hacerte una idea de como se verian nuestros productos personalizados, aquí te dejo algunos, echales un ojo.</p>
+            <div className="personalizados__images--container">
+                <div className="personalizados__images">
+                    <img src={personalizadoImage1} alt="imagen personalizado" />
+                </div>
+                <div className="personalizados__images">
+                    <img src={personalizadoImage2} alt="imagen personalizado" />
+                </div>
+                <div className="personalizados__images">
+                    <img src={personalizadoImage3} alt="imagen personalizado" />
+                </div>
+            </div>
+            <p className="personalizados__text">mira todos nuestros productos personalizados dando <Link to="/customized">click aqui</Link> </p>
             <p className="personalizados__text">
                 Por mas excentrica, sea cual sea tu idea , no lo dudes, contactanos y cuentanos lo que tienes en mente, estamos seguros que podemos ayudarte. Para mas informacion puedes escribirnos en nuestras redes sociales o directamente en el whatsapp, para hacerlo, dale click al boton de whatsapp de la derecha.
             </p>

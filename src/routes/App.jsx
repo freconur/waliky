@@ -22,6 +22,7 @@ import FavProducts from '../pages/FavProducts';
 import ProtectedRouteUser from '../components/ProtectedRouteUser';
 import CategoryList from '../components/CategoryList';
 import Personalizados from '../pages/Personalizados'
+import Customized from '../pages/Customized'
 const App = () => {
   return (
     <AuthProvider>
@@ -44,6 +45,7 @@ const App = () => {
               </ProtectedRouteUser>
             } />
             <Route exact path="/polos" element={<Polos/>} />
+            <Route exact path="/customized" element={<Customized/>} />
             <Route exact path="/personalizados" element={<Personalizados/>} />
             <Route exact path="/categoria" element={<CategoryList/>} />
             <Route exact path="/remedio" element={<PruebaFucion/>} />

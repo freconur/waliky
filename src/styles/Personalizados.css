@@ -7,7 +7,7 @@
 .personalizados__container {
     font-size: var(--fontSizeH2);
     font-family: var(--nunito);
-    margin: 40px 0;
+    margin: 40px 40px;
 }
 .personalizados__title {
     color: var(--firstColor);
@@ -17,4 +17,19 @@
 .personalizados__text {
     color: var(--colorText1);
     font-size: .5em;
+}
+.personalizados__images--container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(100px, 200px));
+    place-items: center;
+    grid-gap: 20px;
+    justify-content: center;
+    margin: 50px 0;
+}
+.personalizados__images {
+    border-radius: 20px;
+    overflow: hidden;
+}
+.personalizados__images img{
+    width: 100%;
 }

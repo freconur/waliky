@@ -21,11 +21,13 @@ const AddCategory = ({ submitHandler }) => {
     cojines: collection(db, "cojines"),
     tazas: collection(db, "tazas"),
     polos: collection(db, "polos"),
+    personalizados: collection(db, "personalizados"),
   };
   const imageCollection = {
     cojines: "cojines",
     tazas: "tazas",
     polos: "polos",
+    personalizados: "personalizados",
   };
   // useState para los valores del select en la colleccion
   const [imageCollections, setImageCollections] = useState("");
@@ -43,13 +45,20 @@ const AddCategory = ({ submitHandler }) => {
       setCategorys(categoryCollections.cojines);
       setImageCollections(imageCollection.cojines);
     } else if (name === "tazas") {
-      console.log("taza");
       setCategorys(categoryCollections.tazas);
       setImageCollections(imageCollection.tazas);
     } else if (name === "polos") {
-      console.log("polos");
       setCategorys(categoryCollections.polos);
       setImageCollections(imageCollection.polos);
+    } else if (name === "personalizados") {
+      setCategorys(categoryCollections.personalizados);
+      setImageCollections(imageCollection.personalizados);
+    } else if (name === "medias") {
+      setCategorys(categoryCollections.medias);
+      setImageCollections(imageCollection.medias);
+    } else if (name === "padmouse") {
+      setCategorys(categoryCollections.padmouse);
+      setImageCollections(imageCollection.padmouse);
     }
     setEnableImage(!enableImage)
     setInputInitial({ ...inputInitial, collection: name });
@@ -99,6 +108,9 @@ const AddCategory = ({ submitHandler }) => {
               <option value="cojines">cojines</option>
               <option value="tazas">tazas</option>
               <option value="polos">polos</option>
+              <option value="personalizados">personalizados</option>
+              <option value="medias">medias</option>
+              <option value="padmouse">padmouse</option>
             </select>
             {errors.collection?.type === "required" && "First name is required"}
           </div>

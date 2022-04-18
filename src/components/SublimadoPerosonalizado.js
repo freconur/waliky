@@ -21,8 +21,8 @@ const SublimadoPerosonalizado = () => {
           {/* <a href="https://wa.me/+51982752688?text=Me%20interesa" className="sublimadosPersonalizados__callToAction" target="blank">
             ¡QUIERO UNO!
           </a> */}
-          <Link className="sublimadosPersonalizados__learnMore" to="/personalizados">
-            Leer más
+          <Link className="sublimadosPersonalizados__learnMore" to="/customized">
+            Ver más
           </Link>
         </div>
         <div className="sublimadosPersonalizados__image--container">

@@ -33,7 +33,7 @@
     font-family: 'Nunito', sans-serif;
     text-transform: capitalize;
     font-weight: 800;
-    margin: 0 0;
+    margin: 40px 0;
 }
 .categoryFilter__button {
     display: flex;
