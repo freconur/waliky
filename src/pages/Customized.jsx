@@ -4,6 +4,7 @@ import "../styles/productContainer.css";
 import '../styles/productContainer_res.css'
 import PageLoading from "./PageLoading";
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { query, orderBy, limit } from "firebase/firestore"
 import app from '../firebase/firebase.config';
 
 const db = getFirestore(app)
@@ -12,9 +13,19 @@ const Customized = () => {
     const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const getProduct = async () => {
-    const item = await getDocs(collection(db, "personalizados"));
+// //prueba con query orderby y limit
+// const collectionCustomized = collection(db, "personalizados")
+//   const prueba = query(collection(db, "personalizados"), limit(5))
+// termina pruena
+// console.log("prueba:",prueba)
+
+
+const getProduct =  async() => {
+    const prueba = query(collection(db, "personalizados"), orderBy("name"), limit(5))
+    // const item = await getDocs(collection(db, "personalizados"),orderBy("name"), limit(5));
+    const item = await getDocs(prueba);
     const docs = [];
+    // console.log("item", item)
     item.forEach((doc) => {
       docs.push({ ...doc.data(), id: doc.id });
       setProduct(docs);

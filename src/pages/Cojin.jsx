@@ -14,8 +14,9 @@ const Cojin = () => {
   const [activeCollection, setActiveCollection] = useState(true)
   const [newCategory, setNewCategory] = useState([])
 
+
   const getProduct = async () => {
-    const item = await getDocs(collection(db, "cojines"),limit(10));
+    const item = await getDocs(collection(db, "cojines"));
     const docs = [];
     const category = []
     item.forEach(doc =>  {
