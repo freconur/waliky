@@ -1,9 +1,12 @@
 {
   "files": {
-    "main.css": "/waliky/static/css/main.0535aa7f.css",
-    "main.js": "/waliky/static/js/main.6289b10a.js",
+    "main.css": "/waliky/static/css/main.71e104d7.css",
+    "main.js": "/waliky/static/js/main.081fc35f.js",
     "static/media/bannerFelizcumpleanos.png": "/waliky/static/media/bannerFelizcumpleanos.e58e898ac06caa3e7695.png",
     "static/media/sublimadoPersonalizado.png": "/waliky/static/media/sublimadoPersonalizado.c56c48fe27f4ef8d94c9.png",
+    "static/media/erika.jpg": "/waliky/static/media/erika.98d4930a078f0598bd78.jpg",
+    "static/media/marlene.jpg": "/waliky/static/media/marlene.50aca274384a9962caa0.jpg",
+    "static/media/adriana.jpg": "/waliky/static/media/adriana.c3d73ca3ddfca00ba827.jpg",
     "static/media/waliky-logo.png": "/waliky/static/media/waliky-logo.907c9d967bf8b90436b0.png",
     "static/media/Flaticon.svg": "/waliky/static/media/Flaticon.6e666bcb232b4a142007.svg",
     "static/media/polosCategory.jpg": "/waliky/static/media/polosCategory.36cc3121bdafb48f1783.jpg",
@@ -15,11 +18,11 @@
     "static/media/Flaticon.woff": "/waliky/static/media/Flaticon.eb2c613c7c2fbfbe1792.woff",
     "index.html": "/waliky/index.html",
     "static/media/bars-solid.svg": "/waliky/static/media/bars-solid.0671bc5b9388995c7446ee5e448f585d.svg",
-    "main.0535aa7f.css.map": "/waliky/static/css/main.0535aa7f.css.map",
-    "main.6289b10a.js.map": "/waliky/static/js/main.6289b10a.js.map"
+    "main.71e104d7.css.map": "/waliky/static/css/main.71e104d7.css.map",
+    "main.081fc35f.js.map": "/waliky/static/js/main.081fc35f.js.map"
   },
   "entrypoints": [
-    "static/css/main.0535aa7f.css",
-    "static/js/main.6289b10a.js"
+    "static/css/main.71e104d7.css",
+    "static/js/main.081fc35f.js"
   ]
 }
