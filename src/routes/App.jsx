@@ -23,6 +23,7 @@ import ProtectedRouteUser from '../components/ProtectedRouteUser';
 import CategoryList from '../components/CategoryList';
 import Personalizados from '../pages/Personalizados'
 import Customized from '../pages/Customized'
+import PruebaConcat from '../pages/PruebaConcat'
 const App = () => {
   return (
     <AuthProvider>
@@ -45,6 +46,7 @@ const App = () => {
               </ProtectedRouteUser>
             } />
             <Route exact path="/polos" element={<Polos/>} />
+            <Route exact path="/concat" element={<PruebaConcat/>} />
             <Route exact path="/customized" element={<Customized/>} />
             <Route exact path="/personalizados" element={<Personalizados/>} />
             <Route exact path="/categoria" element={<CategoryList/>} />
