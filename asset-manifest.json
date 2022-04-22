@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/waliky/static/css/main.71e104d7.css",
-    "main.js": "/waliky/static/js/main.081fc35f.js",
+    "main.js": "/waliky/static/js/main.c4056b23.js",
     "static/media/bannerFelizcumpleanos.png": "/waliky/static/media/bannerFelizcumpleanos.e58e898ac06caa3e7695.png",
     "static/media/sublimadoPersonalizado.png": "/waliky/static/media/sublimadoPersonalizado.c56c48fe27f4ef8d94c9.png",
     "static/media/erika.jpg": "/waliky/static/media/erika.98d4930a078f0598bd78.jpg",
@@ -19,10 +19,10 @@
     "index.html": "/waliky/index.html",
     "static/media/bars-solid.svg": "/waliky/static/media/bars-solid.0671bc5b9388995c7446ee5e448f585d.svg",
     "main.71e104d7.css.map": "/waliky/static/css/main.71e104d7.css.map",
-    "main.081fc35f.js.map": "/waliky/static/js/main.081fc35f.js.map"
+    "main.c4056b23.js.map": "/waliky/static/js/main.c4056b23.js.map"
   },
   "entrypoints": [
     "static/css/main.71e104d7.css",
-    "static/js/main.081fc35f.js"
+    "static/js/main.c4056b23.js"
   ]
 }
