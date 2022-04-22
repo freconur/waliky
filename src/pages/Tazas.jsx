@@ -16,12 +16,9 @@ const Tazas = () => {
   const [lastVisible, setLastVisible] = useState(null);
   const [newCategory, setNewCategory] = useState([])
   const [after, setAfter] = useState(0)
-
-
   const getCategory = async() => {
     const collectionLimit = query(collection(db, "tazas"),
                             orderBy('name'), 
-                            // startAfter( lastVisible ),  
                             limit(15));
     const item = await getDocs(collectionLimit);                        
     const category = []
@@ -38,18 +35,12 @@ const Tazas = () => {
                             limit(15));
     const item = await getDocs(collectionLimit);
     const docs = [];
-    // const category = []
-    // item.forEach(doc =>  {
-    //   category.push(doc.data().category)
-    // })
     item.forEach((doc) => {
       docs.push({ ...doc.data(), id: doc.id });
     });
     setAfter(item)
     setProduct(e => e.concat(docs));
-    // const categoryFilter = [...new Set(category)]
     setLoading(false)
-    // setCategory(categoryFilter)
   };
   useEffect(() => {
     setLoading(true)
@@ -86,9 +77,7 @@ const Tazas = () => {
           handleCategory={handleCategory} 
           handleAllCategorys={handleAllCategorys} />
         </div>
-          
           {/* //esto es para todos los productos de la collection */}
-          
           <InfiniteScroll 
               dataLength={product.length}
               hasMore={true}
