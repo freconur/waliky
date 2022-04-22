@@ -1,44 +1,69 @@
 import React, { useState, useEffect } from "react";
 import app from "../firebase/firebase.config"
-import { getFirestore, collection, getDocs,query, orderBy, limit } from "firebase/firestore";
+import { getFirestore, collection, getDocs, query, orderBy, startAfter, limit } from "firebase/firestore";
 import ProductCard from "../components/ProductCard";
 import "../styles/productContainer.css";
 import '../styles/productContainer_res.css'
 import PageLoading from "./PageLoading";
 import CategoryList from "../components/CategoryList";
+import InfiniteScroll from "react-infinite-scroll-component";
 const db = getFirestore(app)
 const Cojin = () => {
   const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(false);
   const [category, setCategory] = useState([])
   const [activeCollection, setActiveCollection] = useState(true)
+  const [lastVisible, setLastVisible] = useState(null);
   const [newCategory, setNewCategory] = useState([])
+  const [after, setAfter] = useState(0)
 
 
-  const getProduct = async () => {
-    const item = await getDocs(collection(db, "cojines"));
-    const docs = [];
+  const getCategory = async() => {
+    const collectionLimit = query(collection(db, "cojines"),
+                            orderBy('name'), 
+                            // startAfter( lastVisible ),  
+                            limit(15));
+    const item = await getDocs(collectionLimit);                        
     const category = []
     item.forEach(doc =>  {
       category.push(doc.data().category)
     })
+    const categoryFilter = [...new Set(category)]
+    setCategory(categoryFilter)
+  }
+  const getProduct = async () => {
+    const collectionLimit = query(collection(db, "cojines"),
+                            orderBy('name'), 
+                            startAfter( lastVisible ),  
+                            limit(15));
+    const item = await getDocs(collectionLimit);
+    const docs = [];
+    // const category = []
+    // item.forEach(doc =>  {
+    //   category.push(doc.data().category)
+    // })
     item.forEach((doc) => {
       docs.push({ ...doc.data(), id: doc.id });
-      setProduct(docs);
     });
-    const categoryFilter = [...new Set(category)]
+    setAfter(item)
+    setProduct(e => e.concat(docs));
+    // const categoryFilter = [...new Set(category)]
     setLoading(false)
-    setCategory(categoryFilter)
+    // setCategory(categoryFilter)
   };
   useEffect(() => {
     setLoading(true)
+    getCategory()
     getProduct();
-  }, []);
+  }, [lastVisible]);
   function handleCategory(e){
     const { name } = e.target    
     const categoryProduct = product.filter( cat => cat.category === name)
     setNewCategory(categoryProduct)
     setActiveCollection(false)
+  }
+  const infiniteScroll = () => {
+    setLastVisible(after.docs[after.docs.length-1] || null) 
   }
   const handleAllCategorys = () => {
     setActiveCollection(true)
@@ -61,9 +86,14 @@ const Cojin = () => {
           handleCategory={handleCategory} 
           handleAllCategorys={handleAllCategorys} />
         </div>
-          {loading && <PageLoading/>}
+          
           {/* //esto es para todos los productos de la collection */}
           
+          <InfiniteScroll 
+              dataLength={product.length}
+              hasMore={true}
+              next={infiniteScroll}
+              >
           { activeCollection && 
             <ul className="container__products">
               {product.map((prod) => (
@@ -71,6 +101,8 @@ const Cojin = () => {
               ))}
             </ul>
           }
+          </InfiniteScroll>
+          {loading && <PageLoading/>}
 {/* //esto es para las categorias filtrdas */}
           { !activeCollection && 
             <ul className="container__products" >

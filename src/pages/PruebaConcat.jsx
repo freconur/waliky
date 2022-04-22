@@ -15,15 +15,8 @@ const PruebaConcat = () => {
   const [lastVisible, setLastVisible] = useState(null);
   const [hasMore, setHasMore] = useState(true);
   const [after, setAfter] = useState(0)
-  const [concat, setConcat] = useState([])
-  const [cantidad, setCantidad] = useState([]);
 
-  const getProduct = async () => {
-    // setLoading(false)
-    // const collectionLength = await getDocs(collection(db, "personalizados"));
-    // setCantidad(collectionLength);
-    //-->para que me aparezca los items limitados
-    // let lastVisible = null
+  const getProduct = async() => {
     const collectionLimit = query(collection(db, "tazas"),
                             orderBy('name'), 
                             startAfter( lastVisible ),  
@@ -34,13 +27,11 @@ const PruebaConcat = () => {
       docis.push({ ...doc.data(), id: doc.id });
     });
     setAfter(item)
-    // setLastVisible(item.docs[item.docs.length-1])
     console.log(lastVisible)
     setProduct( e => e.concat(docis))
     setLoading(false)
-    // debugger
   };
-  const handleClick = () => {
+  const infiniteScroll = () => {
     setLastVisible(after.docs[after.docs.length-1])
     
   }
@@ -57,11 +48,11 @@ const PruebaConcat = () => {
         <div className="container__prod">
           <h1 className="product__title">Personalizados</h1>
           <div className="product__container">
-            {loading && <PageLoading />}
+            
             <InfiniteScroll
               dataLength={product.length}
-              hasMore={hasMore}
-              next={handleClick}
+              hasMore={true}
+              next={infiniteScroll}
               // next={() => setProductLimit(null)}
             >
               <ul className="container__products">
@@ -70,7 +61,8 @@ const PruebaConcat = () => {
                 ))}
               </ul>
             </InfiniteScroll>
-            <button onClick={handleClick}>cargar mas</button>
+            {loading && <PageLoading />}
+            {/* <button onClick={handleClick}>cargar mas</button> */}
           </div>
         </div>
       </div>
