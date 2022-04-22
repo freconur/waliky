@@ -21,7 +21,7 @@ const Customized = () => {
     const collectionLength = await getDocs(collection(db, "personalizados"));
     setCantidad(collectionLength);
     //-->para que me aparezca los items limitados
-    const collectionLimit = query(collection(db, "personalizados"), limit(3));
+    const collectionLimit = query(collection(db, "personalizados"),orderBy('name'), limit(3));
     console.log("collectionLength:", collectionLength.docs.length);
     const item = await getDocs(collectionLimit);
     setProductLimit(item);
@@ -43,6 +43,7 @@ const Customized = () => {
     //-->sirve para mandar a traer losa items apartir de donde se dejo el anterior
     const next = query(
       collection(db, "personalizados"),
+      orderBy('name'),
       startAfter(lastVisible),
       limit(3)
     );

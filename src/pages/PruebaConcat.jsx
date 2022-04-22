@@ -1,88 +1,80 @@
 import React, { useState, useEffect } from "react";
 import app from "../firebase/firebase.config"
-import { getFirestore, collection, getDocs,query, orderBy, limit } from "firebase/firestore";
+import { getFirestore, collection, getDocs, query, orderBy, startAfter, limit} from "firebase/firestore";
 import ProductCard from "../components/ProductCard";
 import "../styles/productContainer.css";
 import '../styles/productContainer_res.css'
 import PageLoading from "./PageLoading";
+import InfiniteScroll from "react-infinite-scroll-component";
 import CategoryList from "../components/CategoryList";
+import { faTruckMedical } from "@fortawesome/free-solid-svg-icons";
 const db = getFirestore(app)
-const Cojin = () => {
+const PruebaConcat = () => {
   const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [category, setCategory] = useState([])
-  const [activeCollection, setActiveCollection] = useState(true)
-  const [newCategory, setNewCategory] = useState([])
-
+  const [lastVisible, setLastVisible] = useState(null);
+  const [hasMore, setHasMore] = useState(true);
+  const [after, setAfter] = useState(0)
+  const [concat, setConcat] = useState([])
+  const [cantidad, setCantidad] = useState([]);
 
   const getProduct = async () => {
-    const item = await getDocs(collection(db, "cojines"));
-    const docs = [];
-    const category = []
-    item.forEach(doc =>  {
-      category.push(doc.data().category)
-    })
+    // setLoading(false)
+    // const collectionLength = await getDocs(collection(db, "personalizados"));
+    // setCantidad(collectionLength);
+    //-->para que me aparezca los items limitados
+    // let lastVisible = null
+    const collectionLimit = query(collection(db, "tazas"),
+                            orderBy('name'), 
+                            startAfter( lastVisible ),  
+                            limit(15));
+    const item = await getDocs(collectionLimit);
+    const docis = [];
     item.forEach((doc) => {
-      docs.push({ ...doc.data(), id: doc.id });
-      setProduct(docs);
+      docis.push({ ...doc.data(), id: doc.id });
     });
-    const categoryFilter = [...new Set(category)]
+    setAfter(item)
+    // setLastVisible(item.docs[item.docs.length-1])
+    console.log(lastVisible)
+    setProduct( e => e.concat(docis))
     setLoading(false)
-    setCategory(categoryFilter)
+    // debugger
   };
+  const handleClick = () => {
+    setLastVisible(after.docs[after.docs.length-1])
+    
+  }
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     getProduct();
-  }, []);
-  function handleCategory(e){
-    const { name } = e.target    
-    const categoryProduct = product.filter( cat => cat.category === name)
-    setNewCategory(categoryProduct)
-    setActiveCollection(false)
-  }
-  const handleAllCategorys = () => {
-    setActiveCollection(true)
-    getProduct()
-  }
+  }, [lastVisible]);
   if (!product) {
     return null;
   }
   return (
     <React.Fragment>
       <div>
-      <div className="container__prod">
-        <h1 className="product__title">Cojines</h1>
-        <div className='product__container'>
-        <div className="categoryFilter__button">
-          {/* <div className="category__all" onClick={handleAllCategorys}><span>Todos</span></div> */}
-          <CategoryList 
-          category={category} 
-          product={product} 
-          handleCategory={handleCategory} 
-          handleAllCategorys={handleAllCategorys} />
+        <div className="container__prod">
+          <h1 className="product__title">Personalizados</h1>
+          <div className="product__container">
+            {loading && <PageLoading />}
+            <InfiniteScroll
+              dataLength={product.length}
+              hasMore={hasMore}
+              next={handleClick}
+              // next={() => setProductLimit(null)}
+            >
+              <ul className="container__products">
+                {product.map((prod) => (
+                  <ProductCard key={prod.id} prod={prod} />
+                ))}
+              </ul>
+            </InfiniteScroll>
+            <button onClick={handleClick}>cargar mas</button>
+          </div>
         </div>
-          {loading && <PageLoading/>}
-          {/* //esto es para todos los productos de la collection */}
-          
-          { activeCollection && 
-            <ul className="container__products">
-              {product.map((prod) => (
-                <ProductCard key={prod.id} prod={prod} />
-              ))}
-            </ul>
-          }
-{/* //esto es para las categorias filtrdas */}
-          { !activeCollection && 
-            <ul className="container__products" >
-            {newCategory.map(prod => (
-              <ProductCard key={prod.id} prod={prod} />
-              ))}
-          </ul>
-          }
-        </div>
-      </div>
       </div>
     </React.Fragment>
   );
 };
-export default Cojin;
+export default PruebaConcat;
