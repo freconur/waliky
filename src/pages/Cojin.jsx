@@ -16,20 +16,24 @@ const Cojin = () => {
   const [lastVisible, setLastVisible] = useState(null);
   const [newCategory, setNewCategory] = useState([])
   const [after, setAfter] = useState(0)
-
+  const [allProducts, setAllProducts] = useState([])
 
   const getCategory = async() => {
-    const collectionLimit = query(collection(db, "cojines"),
-                            orderBy('name'), 
-                            // startAfter( lastVisible ),  
-                            limit(15));
-    const item = await getDocs(collectionLimit);                        
+    const item = await getDocs(collection(db,"cojines"))                       
     const category = []
     item.forEach(doc =>  {
       category.push(doc.data().category)
     })
     const categoryFilter = [...new Set(category)]
     setCategory(categoryFilter)
+  }
+  const getAllProduct = async () => {
+    const allItem = await getDocs(collection(db,"cojines")); 
+    const allProduct = []
+    allItem.forEach(doc =>  {
+      allProduct.push({ ...doc.data(), id: doc.id })
+    })
+    setAllProducts(allProduct)
   }
   const getProduct = async () => {
     const collectionLimit = query(collection(db, "cojines"),
@@ -38,18 +42,13 @@ const Cojin = () => {
                             limit(15));
     const item = await getDocs(collectionLimit);
     const docs = [];
-    // const category = []
-    // item.forEach(doc =>  {
-    //   category.push(doc.data().category)
-    // })
     item.forEach((doc) => {
       docs.push({ ...doc.data(), id: doc.id });
     });
     setAfter(item)
     setProduct(e => e.concat(docs));
-    // const categoryFilter = [...new Set(category)]
+    getAllProduct()
     setLoading(false)
-    // setCategory(categoryFilter)
   };
   useEffect(() => {
     setLoading(true)
@@ -58,12 +57,13 @@ const Cojin = () => {
   }, [lastVisible]);
   function handleCategory(e){
     const { name } = e.target    
-    const categoryProduct = product.filter( cat => cat.category === name)
+    const categoryProduct = allProducts.filter( cat => cat.category === name)
+    // const categoryProduct = product.filter( cat => cat.category === name)
     setNewCategory(categoryProduct)
     setActiveCollection(false)
   }
   const infiniteScroll = () => {
-    setLastVisible(after.docs[after.docs.length-1] || null) 
+    setLastVisible(after.docs[after.docs.length - 1] || null) 
   }
   const handleAllCategorys = () => {
     setActiveCollection(true)

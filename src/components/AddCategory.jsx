@@ -76,7 +76,7 @@ const AddCategory = ({ submitHandler }) => {
     console.log("se cargo la imagen");
     setInputInitial({ ...inputInitial, image: url });
     setSaveImage(!saveImage);
-    debugger
+    // debugger
   };
   //funcion de react hook form
   const {
@@ -169,6 +169,7 @@ const AddCategory = ({ submitHandler }) => {
               <option value="alianza lima">alianza lima</option>
               <option value="star wars">star wars</option>
               <option value="personzalido">personzalido</option>
+              <option value="amongus">amongUs</option>
             </select>
             {errors.category?.type === "required" && "First name is required"}
           </div>
