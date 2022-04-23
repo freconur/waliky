@@ -67,10 +67,10 @@ const Customized = () => {
   const infiniteScroll = () => {
     setLastVisible(after.docs[after.docs.length - 1] || null) 
   }
-  const handleAllCategorys = () => {
-    setActiveCollection(true)
-    getProduct()
-  }
+  // const handleAllCategorys = () => {
+  //   setActiveCollection(true)
+  //   getProduct()
+  // }
   if (!product) {
     return null;
   }

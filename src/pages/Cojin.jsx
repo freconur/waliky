@@ -50,11 +50,7 @@ const Cojin = () => {
     getAllProduct()
     setLoading(false)
   };
-  useEffect(() => {
-    setLoading(true)
-    getCategory()
-    getProduct();
-  }, [lastVisible]);
+  
   function handleCategory(e){
     const { name } = e.target    
     const categoryProduct = allProducts.filter( cat => cat.category === name)
@@ -65,10 +61,15 @@ const Cojin = () => {
   const infiniteScroll = () => {
     setLastVisible(after.docs[after.docs.length - 1] || null) 
   }
-  const handleAllCategorys = () => {
-    setActiveCollection(true)
-    getProduct()
-  }
+  // const handleAllCategorys = () => {
+  //   setActiveCollection(true);
+  //   getProduct();
+  // }
+  useEffect(() => {
+    setLoading(true);
+    getCategory();
+    getProduct();
+  }, [lastVisible]);
   if (!product) {
     return null;
   }
@@ -84,7 +85,8 @@ const Cojin = () => {
           category={category} 
           product={product} 
           handleCategory={handleCategory} 
-          handleAllCategorys={handleAllCategorys} />
+          // handleAllCategorys={handleAllCategorys} 
+          />
         </div>
           
           {/* //esto es para todos los productos de la collection */}

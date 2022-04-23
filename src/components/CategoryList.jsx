@@ -2,7 +2,7 @@ import React from 'react'
 import '../styles/CategoryList.css'
 import '../styles/CategoryList_res.css'
 
-const CategoryList = ({ category, handleCategory, handleAllCategorys  }) => {
+const CategoryList = ({ category, handleCategory }) => {
   return (
     <>
       <div className="categoryList__container">
@@ -18,7 +18,7 @@ const CategoryList = ({ category, handleCategory, handleAllCategorys  }) => {
             value={valor}
             />
             ))}
-            <div className="category__all" onClick={handleAllCategorys}><span>Todos</span></div>
+            {/* <div className="category__all" onClick={handleAllCategorys}><span>Todos</span></div> */}
         </div>
       </div>
     </>
