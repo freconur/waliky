@@ -5,19 +5,20 @@ import { getFirestore, addDoc} from 'firebase/firestore'
 import { doc, updateDoc, deleteDoc } from 'firebase/firestore'
 import AddCategory from '../components/AddCategory'
 import '../styles/UserDashboard.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import BuscarItem from '../components/BuscarItem'
+// import { navigate } 
 
  const db = getFirestore(app);
-
-
-const Dashboard_prueba = () => {
+ 
+ const Dashboard_prueba = () => {
+  const navigate = useNavigate()
 
     const { user, logout } = useAuth();
     const handleLogout = async () => {
         try {
+          navigate('/')
           await logout();
-          // navigate('/')
         } catch (error) {
           error("ups, parece ocurrio un error");
         }
