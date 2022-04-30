@@ -162,7 +162,7 @@ const AddCategory = ({ submitHandler }) => {
           </div>
 
           <div>
-            <button className="btn btn-primary">agregar</button>
+            <button className="btn btn-success">agregar</button>
           </div>
         </div>
       </form>

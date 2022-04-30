@@ -5,6 +5,7 @@ import "../styles/BuscarItem.css";
 import SelectCategory from "./SelectCategory";
 import SelectCollection from "./SelectCollection";
 import { useForm } from "react-hook-form";
+import swal from "sweetalert";
 const db = getFirestore(app);
 const BuscarItem = ({ submitHandlerUpdate, submitHandlerDelete }) => {
   const idValue = {
@@ -76,7 +77,17 @@ const BuscarItem = ({ submitHandlerUpdate, submitHandlerDelete }) => {
     setProductValue({...productValue, [name]:value})
   };
   const handleClickDelete = () => {
-    submitHandlerDelete(prueba.collection, itemId.id)
+    swal({
+      title: "Eliminar",
+      text: "Estas seguro de elimnar este item?",
+      icon: "warning",
+      buttons: ["No", "Si"]
+    }).then( respuesta => {
+      if(respuesta) {
+        submitHandlerDelete(prueba.collection, itemId.id)
+        swal({text: "el item ha sido borrado con exito", icon: "success"})
+      }
+    })
   }
   const {
     register,

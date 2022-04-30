@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import app from '../firebase/firebase.config'
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 import { Link } from 'react-router-dom'
 // import favProductIcon from '../assets/icons/heart.png'
 import { getFirestore, collection, query, getDocs, doc, setDoc  } from 'firebase/firestore'
@@ -9,10 +10,12 @@ import {faHeart as faHeartSolid} from '@fortawesome/free-solid-svg-icons'
 import {faHeart as faHeartRegular} from '@fortawesome/free-regular-svg-icons'
 import "../styles/ProductCard.css"
 import ModalProduct from "../Modals/ModalProduct"
+import toast, { Toaster } from 'react-hot-toast';
 import swal from 'sweetalert';
 const db = getFirestore(app)
 const ProductCard = ({prod}) => {
   const { user } = useAuth()
+  const [copyState, setCopyState] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
   const [likeButton, setLikeButton] = useState(false)
 
@@ -77,8 +80,14 @@ const ProductCard = ({prod}) => {
           <img className="product__image--modal" src={prod.image} alt={prod.name}/>
           <div className="product__name--modal">
             <h2 className="product__title--modal">{prod.name}</h2>
-            <p  onClick={() => setIsOpen(false)}  className="product__close">cerrar</p>
+            
+
+            <CopyToClipboard text={prod.id}>
+                <span onClick={()=> toast.success("Id copiado")} className='copiarId'>Copiar ID</span>
+            </CopyToClipboard>
+            <span onClick={() => setIsOpen(false)}  className="product__close">cerrar</span>
           </div>
+            <Toaster/>
         </ModalProduct >
     </li>
   )
