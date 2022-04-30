@@ -21,10 +21,10 @@ const AddCategory = ({ submitHandler }) => {
   //variables para volver dinamica la seleccion de valores de la coleccion
   const categoryCollections = {
     cojines: collection(db, "cojines"),
-    tazas: collection(db, "tazas"),
+   tazas: collection(db, "tazas"),
     polos: collection(db, "polos"),
     personalizados: collection(db, "personalizados"),
-  };
+  } ;
   const imageCollection = {
     cojines: "cojines",
     tazas: "tazas",
@@ -95,7 +95,7 @@ const AddCategory = ({ submitHandler }) => {
     reset();
   };
   return (
-    <div className="dashboard_content">
+    <div className="addCategory__container">
       <h1>Agrega nuevos items a la coleccion</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-3">
@@ -105,7 +105,7 @@ const AddCategory = ({ submitHandler }) => {
               {...register("collection", { required: true })}
               name="collection"
               onChange={handleImageCollection}
-            >
+            > 
               <SelectCollection />
             </select>
             {errors.collection?.type === "required" && "First name is required"}

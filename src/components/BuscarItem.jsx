@@ -21,16 +21,11 @@ const BuscarItem = ({ submitHandlerUpdate, submitHandlerDelete }) => {
     tazas: "tazas",
     polos: "polos",
     personalizados: "personalizados"
-    // cojines: collection(db, "cojines"),
-    // tazas: collection(db, "tazas"),
-    // polos: collection(db, "polos"),
-    // personalizados: collection(db, "personalizados")
   } 
   const [collections, setCollections] = useState(collectionItem)
   const [productValue, setProductValue] = useState(inputInitial);
   const [itemId, setItemId] = useState(idValue);
   const [prueba, setPrueba] = useState([]);
-
   const getProduct = async (e) => {
     e.preventDefault();
     const itemTazas = doc(db, "tazas", itemId.id);
@@ -54,7 +49,6 @@ const BuscarItem = ({ submitHandlerUpdate, submitHandlerDelete }) => {
       setPrueba(itemsPersonalizados.data());
     }
   };
-  
   const handleChangeCollection = (e) => {
     const name = e.target.value;
     if (name === "cojines") {
@@ -75,7 +69,6 @@ const BuscarItem = ({ submitHandlerUpdate, submitHandlerDelete }) => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setItemId({ [name]: value });
-    // setProductValue({...productValue, [name]:value})
     console.log(itemId);
   };
   const handleInputChanges = (e) => {
@@ -94,80 +87,85 @@ const BuscarItem = ({ submitHandlerUpdate, submitHandlerDelete }) => {
   const onSubmit = (data) => {
     console.log(data)
     submitHandlerUpdate(data, collections, itemId.id );
-    // debugger
-    
     reset();
   };
   return (
-    <div>
+    <div className="buscarItem__container">
       <h2>Buscar item</h2>
-      <p>aqui mostrara los resultados de la busqueda por id de producto</p>
-      <form className="form form__inputedit">
-        <input
-          type="text"
-          name="id"
-          className="id"
-          placeholder="id de producto"
-          onChange={handleInputChange}
-        />
-        <button onClick={getProduct}>Buscar</button>
-      </form>
-      <form onSubmit={handleSubmit(onSubmit)} className="form__findedit">
-        <div>
-          <label>nombre</label>
-          <div className="form__inputedit">
-            <p>{prueba.name}</p>
-            <input 
-            {...register("name", { required: true })}
-            name="name" 
-            type="text" 
-            placeholder="edita el nombre" 
-            onChange={handleInputChanges}/>
-          </div>
-          <label>precio</label>
-          <div className="form__inputedit">
-            <p>{prueba.price}</p>
-            <input 
-            {...register("price", { required: true })}
-            name="price"
-            type="text" 
-            placeholder="edita el precio" 
-            onChange={handleInputChanges}/>
-          </div>
-          <label>colleccion</label>
-          <div className="form__inputedit">
-            <p>{prueba.collection}</p>
-            <select 
-            {...register("collection", { required: true })}
-            name="collection"
-            onChange={handleChangeCollection}
-            >
-                <SelectCollection />
-            </select>
-          </div>
+      <div className="formBusqueda__container">
+        <form className="form">
+          <input 
+            className="input__searchItemId"
+            type="text"
+            name="id"
+            placeholder="id de producto"
+            onChange={handleInputChange}
+          />
+          <button className="btn btn-primary" onClick={getProduct}>Buscar</button>
+        </form>
+      </div>
+      <div className="formResultItem__container">
 
-          <label>categoria</label>
-          <div className="form__inputedit">
-            <p>{prueba.category}</p>
-            <select 
-            {...register("category", { required: true })}
-            name="category"
-            onChange={handleInputChanges}
-            >
-                <SelectCategory/>
-            </select>
-          </div>
+        <form onSubmit={handleSubmit(onSubmit)} className="formResult__container">
+          <div className="inputResultEditing">
+            <label>Nombre</label>
+            <div className="form__inputedit">
+              <p>{prueba.name}</p>
+              <input 
+              {...register("name", { required: true })}
+              name="name" 
+              type="text" 
+              placeholder="edita el nombre" 
+              onChange={handleInputChanges}/>
+            </div>
+            <label>Precio</label>
+            <div className="form__inputedit">
+              <p>{prueba.price}</p>
+              <input 
+              {...register("price", { required: true })}
+              name="price"
+              type="text" 
+              placeholder="edita el precio" 
+              onChange={handleInputChanges}/>
+            </div>
+            <label>Colleccion</label>
+            <div className="form__inputedit">
+              <p>{prueba.collection}</p>
+              <select 
+              {...register("collection", { required: true })}
+              name="collection"
+              onChange={handleChangeCollection}
+              >
+                  <SelectCollection />
+              </select>
+            </div>
 
-        </div>
-        <div>
-          {/* <p>imagen</p> */}
-          <img src={prueba.image} alt={prueba.name} />
-        </div>
-        <div>
-          <button className="btn btn-primary">editar</button>
-          <button onClick={handleClickDelete}>Borrar</button>
-        </div>
-      </form>
+            <label>Categoria</label>
+            <div className="form__inputedit">
+              <p>{prueba.category}</p>
+              <select 
+              {...register("category", { required: true })}
+              name="category"
+              onChange={handleInputChanges}
+              >
+                  <SelectCategory/>
+              </select>
+            </div>
+
+          </div>
+          <div className="imageButton__container">
+          <div className="btn__search--container">
+              <button className="btn__search btn btn-warning">editar</button>
+              <button className="btn__search btn btn-danger" onClick={handleClickDelete}>Borrar</button>
+            </div>
+            <div className="image__search--container">
+              <img className="imageSeacrh" src={prueba.image} alt={prueba.name} />
+            </div>
+            
+
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

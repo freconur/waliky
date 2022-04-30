@@ -1,7 +1,59 @@
+@import '../Variables.css';
+.buscarItem__container {
+    border-top: solid 2px #0000000f;
+}
 .form__findedit {
 display: flex;
 }
 .form__inputedit {
     display: grid;
-    
+    margin-bottom: 10px;
+}
+.form__inputedit {
+    display: grid;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.form__inputedit p {
+    margin-bottom: initial;
+    /* font-weight: var(--fontWeightButton); */
+}
+.inputResultEditing label {
+    /* font-weight: var(--fontWeightButton); */
+    font-weight: 700;
+}
+.formResultItem__container {
+    border-top: solid 2px #0000000f;
+    padding-top: 30px;
+}
+.formBusqueda__container {
+    display: flex;
+    margin: 30px 0;
+}
+.input__searchItemId {
+    margin-right: 20px;
+}
+.formResult__container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 500px));
+    margin-bottom: 20px;
+}
+.inputResultEditing {
+
+    margin-right: 20px;
+}
+.image__search--container {
+    /* width: 100%; */
+    /* padding-top: 60px; */
+    max-width: 285px;
+    max-height: 285px;
+}
+.imageSeacrh {
+    width: 100%;
+}
+.btn__search--container {
+    margin: 5px 0;
+}
+.btn__search {
+    margin-right: 10px;
 }
