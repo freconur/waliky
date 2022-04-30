@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { useAuth } from '../context/AuthContext'
-// import app from '../firebase/firebase.config'
-import { addDoc } from 'firebase/firestore'
+import app from '../firebase/firebase.config'
+import { getFirestore, addDoc} from 'firebase/firestore'
+import { doc, updateDoc, deleteDoc } from 'firebase/firestore'
 import AddCategory from '../components/AddCategory'
 import '../styles/UserDashboard.css'
 import { Link } from 'react-router-dom'
+import BuscarItem from '../components/BuscarItem'
 
-// const db = getFirestore(app);
+ const db = getFirestore(app);
 
 
 const Dashboard_prueba = () => {
@@ -23,6 +25,19 @@ const Dashboard_prueba = () => {
     const submitHandler = async(data, categorys) => {
       debugger
       await addDoc(categorys, data)
+    }
+    
+    const submitHandlerUpdate = async( data, collections, itemId ) => {
+      debugger
+      const itemUpdate = doc(db, collections, itemId)
+      // const itemUpdate = doc(db, , itemId)
+      debugger
+      await updateDoc(itemUpdate, data)
+      debugger
+    }
+    const submitHandlerDelete = async(collections, itemId) => {
+      debugger
+      await deleteDoc(doc(db, collections, itemId));
     }
   return (
     <div className="dashboard">
@@ -41,7 +56,12 @@ const Dashboard_prueba = () => {
           <AddCategory
           submitHandler={submitHandler}
           />
-        </div>
+          <BuscarItem
+          submitHandlerUpdate={submitHandlerUpdate}
+          submitHandlerDelete={submitHandlerDelete}
+          />
+      </div>
+      
       </div>
   )
 }

@@ -36,7 +36,7 @@ const Tazas = () => {
   }
   const getProduct = async () => {
     const collectionLimit = query(collection(db, "tazas"),
-                            orderBy('name'), 
+                            orderBy("name"), 
                             startAfter( lastVisible ),  
                             limit(15));
     const item = await getDocs(collectionLimit);
@@ -84,7 +84,8 @@ const Tazas = () => {
           category={category} 
           product={product} 
           handleCategory={handleCategory} 
-          handleAllCategorys={handleAllCategorys} />
+          // handleAllCategorys={handleAllCategorys} 
+          />
         </div>
           {/* //esto es para todos los productos de la collection */}
           <InfiniteScroll 

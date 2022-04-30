@@ -4,6 +4,8 @@ import { getFirestore, collection } from "firebase/firestore";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import app from "../firebase/firebase.config";
 import { useForm } from "react-hook-form";
+import SelectCategory from "./SelectCategory";
+import SelectCollection from "./SelectCollection";
 
 const storage = getStorage(app);
 const db = getFirestore(app);
@@ -67,7 +69,7 @@ const AddCategory = ({ submitHandler }) => {
     const name = e.target.value;
     setInputInitial({ ...inputInitial, category: name });
   };
-
+  
   const fileHandler = async (e) => {
     const archivoLocal = e.target.files[0];
     const archivoRef = ref(storage, `${imageCollections}/${archivoLocal.name}`);
@@ -89,7 +91,7 @@ const AddCategory = ({ submitHandler }) => {
     submitHandler({ ...data, image: inputInitial.image }, categorys);
     setEnableImage(!enableImage)
     setSaveImage(!saveImage);
-    debugger
+    // debugger
     reset();
   };
   return (
@@ -104,13 +106,7 @@ const AddCategory = ({ submitHandler }) => {
               name="collection"
               onChange={handleImageCollection}
             >
-              <option value="">selecciona una collecion</option>
-              <option value="cojines">cojines</option>
-              <option value="tazas">tazas</option>
-              <option value="polos">polos</option>
-              <option value="personalizados">personalizados</option>
-              <option value="medias">medias</option>
-              <option value="padmouse">padmouse</option>
+              <SelectCollection />
             </select>
             {errors.collection?.type === "required" && "First name is required"}
           </div>
@@ -151,25 +147,16 @@ const AddCategory = ({ submitHandler }) => {
             />
             {errors.price?.type === "required" && "First name is required"}
           </div>
+         
           <div className="mb-3">
             <label className="form-label">Categoria: </label>
             <select
+              {...register("category", { required: true })}
               name="category"
               onChange={handleChangeCategory}
-              {...register("category", { required: true })}
+              // handleChangeCategory={handleChangeCategory}
             >
-              <option value="">Selecciona una categoria</option>
-              <option value="bts">bts</option>
-              <option value="disney">disney</option>
-              <option value="butter">butter</option>
-              <option value="cumpleaños">cumpleaños</option>
-              <option value="amistad">amistad</option>
-              <option value="dia del padre">dia del padre</option>
-              <option value="dia de la madre">dia de la madre</option>
-              <option value="alianza lima">alianza lima</option>
-              <option value="star wars">star wars</option>
-              <option value="personzalido">personzalido</option>
-              <option value="amongus">amongUs</option>
+             <SelectCategory />
             </select>
             {errors.category?.type === "required" && "First name is required"}
           </div>

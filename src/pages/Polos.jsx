@@ -84,7 +84,8 @@ const Polos = () => {
           category={category} 
           product={product} 
           handleCategory={handleCategory} 
-          handleAllCategorys={handleAllCategorys} />
+          // handleAllCategorys={handleAllCategorys} 
+          />
         </div>
           
           {/* //esto es para todos los productos de la collection */}
