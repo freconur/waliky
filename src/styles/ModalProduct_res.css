@@ -1,7 +1,20 @@
 @media ( max-width: 420px) {
     .product__image--modal {
-        padding: 10px;
+        /* padding: 10px; */
 
+    }
+    .product__title--modal {
+        font-size: 100%;
+    }
+    .portalstyles {
+        width: 100%;
+    }
+}
+@media ( max-width: 600px) {
+    .product__image--modal {
+        /* padding: 10px; */
+        width: 100%;
+        height: auto;
     }
     .product__title--modal {
         font-size: 100%;

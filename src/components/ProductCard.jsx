@@ -15,7 +15,6 @@ import swal from 'sweetalert';
 const db = getFirestore(app)
 const ProductCard = ({prod}) => {
   const { user } = useAuth()
-  const [copyState, setCopyState] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
   const [likeButton, setLikeButton] = useState(false)
 
@@ -23,7 +22,7 @@ const ProductCard = ({prod}) => {
     console.log(user)
     // debugger
     if(user === null){
-      swal("¡Ops algo ocurrió!", "Debes iniciar sesion para poder dar me gusta, si no tienes una cuenta, puedes crear una en registrate en el menu")
+      swal("¡Ops algo ocurrió!", "Debes iniciar sesion para poder dar me gusta, si no tienes una cuenta, puedes crear una el menu")
     } else {
       const q = query(collection(db, "userName"));
         const querySnapshot = await getDocs(q);
